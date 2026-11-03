@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initCore();
   initAI();
   initPalette();
+  initProjects();
+  initContact();
+  initMobileMenu();
   loadGitHub();
 });
 
@@ -147,14 +150,14 @@ function initAI(){
 
   const reply=(q)=>{
     const s=q.toLowerCase();
-    if(/darktrace|threat|intel/.test(s)) return 'DarkTrace-X is Junel\'s flagship defensive threat-intelligence workspace: Next.js + FastAPI + PostgreSQL + Redis + Elasticsearch + a local Qwen GGUF copilot.';
-    if(/kali|linux/.test(s)) return 'Junel uses Linux/Kali for practical security workflows, labs, tooling and system-level learning.';
-    if(/skill|stack|tech/.test(s)) return 'Core stack: Linux, Kali, Python, FastAPI, Next.js, Docker, PostgreSQL, Redis, Elasticsearch, Git/GitHub and local LLM workflows.';
-    if(/hex alpha|hexalpha| ai/.test(s)) return 'Hex Alpha is a security-AI research direction around local models, cybersecurity knowledge and controlled defensive tool orchestration.';
-    if(/soc|blue/.test(s)) return 'SOC/blue-team work is one of the main focus areas: evidence, alerts, investigation, threat intelligence and operational visibility.';
-    if(/vapt|pentest|red/.test(s)) return 'VAPT is an active learning track focused on authorized testing methodology, validation and clear reporting.';
-    if(/contact|github|repo/.test(s)) return 'You can explore the work at github.com/hexalpha. DarkTrace-X and Kaorios-Toolbox are the strongest public showcases right now.';
-    return 'I can answer about Junel\'s projects, cybersecurity focus, Kali/Linux, AI security, DarkTrace-X, Hex Alpha or technical stack.';
+    if(/darktrace|threat|intel/.test(s)) return "DarkTrace-X is a local-preview threat-intelligence platform with approved-source ingestion, IOC/CVE analysis, investigations, report exports and a Qwen GGUF copilot. Public source: github.com/hexalpha/DarkTrace-X.";
+    if(/hex.alert|discord|jobs|alert/.test(s)) return "HEX ALERT collects permitted security feeds and jobs, normalizes alerts and routes reviewed updates to Discord. Its FastAPI dashboard, PostgreSQL storage and optional local GGUF service are in the public source preview: github.com/hexalpha/HEX-ALERT.";
+    if(/bounty|pentest|vapt|kali|terminal/.test(s)) return "HexBounty is Junel's local AI-assisted, authorized assessment workspace built with Go, React, Docker, Kali and Ollama. Approval-gated tool execution is under active development; full autonomous workflows are not yet verified.";
+    if(/hex.alpha|qwen|ollama|gguf|llm|local ai/.test(s)) return "Hex-Alpha LLM is an experimental local-AI research track using quantized Qwen models, Ollama/llama.cpp, speech experiments and controlled Kali/MCP tool orchestration.";
+    if(/skill|stack|tech|python/.test(s)) return "Junel works with Python, Go, React/TypeScript, Next.js, FastAPI, Linux/Kali, Docker, PostgreSQL, Redis, Elasticsearch and local AI.";
+    if(/resume|cv/.test(s)) return "Open the Resume button or visit resume.html. The public-safe resume can be printed or saved as a PDF.";
+    if(/contact|email|gmail|hire|linkedin/.test(s)) return "Email Junel at junelmohmmad1234@gmail.com using the Contact section. LinkedIn: linkedin.com/in/junel123.";
+    return "I can guide you through the four projects: DarkTrace-X, Hex-Alpha LLM, HEX ALERT and HexBounty. Ask about their features, technology, contact or resume. This is a built-in project guide, not a live LLM.";
   };
   form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -176,4 +179,34 @@ function initPalette(){
     if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();p.classList.contains("open")?close():open()}
     if(e.key==="Escape") close();
   });
+}
+
+function initProjects(){
+  const buttons=$$(".filter-chip"),cards=$$(".feature-project");
+  buttons.forEach(btn=>btn.addEventListener("click",()=>{
+    const filter=btn.dataset.filter;
+    buttons.forEach(b=>{const active=b===btn;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
+    cards.forEach(card=>{card.hidden=filter!=="all"&&!card.dataset.tags.split(" ").includes(filter)});
+  }));
+}
+function initContact(){
+  const button=$("#copyEmail"),feedback=$("#copyFeedback");
+  if(!button)return;
+  button.addEventListener("click",async()=>{
+    try{
+      if(!navigator.clipboard||!window.isSecureContext)throw Error("clipboard unavailable");
+      await navigator.clipboard.writeText("junelmohmmad1234@gmail.com");
+      button.textContent="Copied email ✓";feedback.textContent="Email address copied";
+    }catch{
+      button.textContent="Email: junelmohmmad1234@gmail.com";
+      feedback.textContent="Select and copy the address shown";
+    }
+  });
+}
+function initMobileMenu(){
+  const toggle=$("#menuBtn"),nav=$("#primaryNav");if(!toggle||!nav)return;
+  const close=()=>{nav.classList.remove("mobile-open");toggle.setAttribute("aria-expanded","false")};
+  toggle.addEventListener("click",()=>{const open=nav.classList.toggle("mobile-open");toggle.setAttribute("aria-expanded",String(open))});
+  $$("a",nav).forEach(a=>a.addEventListener("click",close));
+  window.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
 }

@@ -64,11 +64,17 @@ Android power-user tooling focused on device customization, diagnostics and auto
 </tr>
 </table>
 
-### 🧠 Hex Alpha
+### 🧠 Hex-Alpha LLM · Local research
+Personal Ollama / llama.cpp and quantized GGUF experiments for multilingual assistance, private inference and scoped Kali/MCP tool orchestration. **Research-stage, no verified public model release.**
 
-A security-AI research project aimed at combining cybersecurity knowledge, tool orchestration, local models and defensive automation.
+### 🔔 [HEX ALERT](https://github.com/hexalpha/HEX-ALERT) · Source preview
+Self-hosted cybersecurity intelligence and job discovery, Discord routing, feed collection, scheduler, FastAPI dashboard, PostgreSQL and optional local GGUF assistant.
 
-> Work in progress — designed around controlled, authorized security workflows.
+### 🛡️ HexBounty · Local development
+Go + React + Docker security workspace using Ollama, scoped assessment proposals, operator approval, validated commands and auditable execution events. **End-to-end autonomous assessments remain unverified.**
+
+### 📬 Contact & Resume
+[✉️ Email](mailto:junelmohmmad1234@gmail.com) · [💼 LinkedIn](https://www.linkedin.com/in/junel123) · [📄 Public-safe resume](https://hexalpha.github.io/hexalpha/resume.html) · [🌐 Live portfolio](https://hexalpha.github.io/hexalpha/)
 
 ---
 

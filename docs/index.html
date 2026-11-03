@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#02060b" />\n  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <meta name="description" content="Junel Mohammad / hexalpha — cybersecurity, threat intelligence, Linux and AI security portfolio." />
+  <meta name="theme-color" content="#02060b" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="Junel Mohammad | Cybersecurity Engineer — DarkTrace-X, Hex Alpha LLM, HEX ALERT, HexBounty. Local AI, threat intelligence, SOC and VAPT projects." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark" />
   <meta property="og:title" content="Junel Mohammad • HexAlpha" />
-  <meta property="og:description" content="Cybersecurity • AI Security • Threat Intelligence • Linux" />
-  <title>Junel Mohammad • HexAlpha</title>
+  <meta property="og:description" content="Four cybersecurity engineering builds: DarkTrace-X, Hex Alpha LLM, HEX ALERT and HexBounty." />
+  <title>Junel Mohammad | Cybersecurity & Local AI Portfolio</title>
   <link rel="preconnect" href="https://avatars.githubusercontent.com" />
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -28,22 +31,24 @@
       <span class="brand__sigil">Hα</span>
       <span><b>HEX</b>ALPHA</span>
     </a>
-    <nav aria-label="Primary">
+    <nav id="primaryNav" aria-label="Primary">
       <a href="#about">Profile</a>
       <a href="#arsenal">Arsenal</a>
       <a href="#projects">Projects</a>
       <a href="#focus">Focus</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="nav__actions">
       <button class="icon-btn" id="paletteBtn" aria-label="Open command palette">⌘K</button>
-      <a class="outline-btn" href="https://github.com/hexalpha" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a class="outline-btn" href="./resume.html" aria-label="View resume">Resume ↗</a>
+      <button id="menuBtn" class="icon-btn mobile-menu-btn" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">☰</button>
     </div>
   </header>
 
   <main id="top">
     <section class="hero shell">
       <div class="hero__copy reveal">
-        <div class="status"><i></i> ONLINE // BUILDING DEFENSIVE SYSTEMS</div>
+        <div class="status"><i></i> BUILDING // SECURITY × LOCAL AI</div>
         <p class="overline">CYBERSECURITY × AI SECURITY × LINUX</p>
         <h1>JUNEL<br><span>MOHAMMAD</span></h1>
         <p class="hero__lede">
@@ -52,9 +57,10 @@
         </p>
         <div class="hero__actions">
           <a class="neon-btn" href="#projects"><span>Explore work</span><b>→</b></a>
-          <a class="link-btn" href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noreferrer">DarkTrace-X ↗</a>
+          <a class="link-btn" href="#contact">Let’s connect ↗</a>
+          <a class="link-btn" href="./resume.html">Resume ↗</a>
         </div>
-        <div class="metrics">
+        <div class="metrics" aria-label="Areas of practice">
           <div><strong id="repoCount">11</strong><span>Public projects</span></div>
           <div><strong>SOC</strong><span>Blue-team mindset</span></div>
           <div><strong>VAPT</strong><span>Security testing</span></div>
@@ -99,7 +105,7 @@
           <div class="hud-readout">
             <div><span>MODE</span><b>DEFENSIVE</b></div>
             <div><span>IDENTITY</span><b>hexalpha</b></div>
-            <div><span>PRIMARY</span><b>DarkTrace-X</b></div>
+            <div><span>BUILD</span><b>Security × AI</b></div>
           </div>
           <div class="terminal">
             <div class="terminal__bar"><i></i><i></i><i></i><span>hexalpha@security:~</span></div>
@@ -181,48 +187,101 @@ build → test → defend<span class="caret">_</span></code></pre>
     </section>
 
     <section class="section shell" id="projects">
-      <div class="rail-title reveal"><span>03</span><p>SELECTED PROJECTS</p></div>
-      <article class="project project--hero reveal">
-        <div class="project__image">
-          <img src="https://raw.githubusercontent.com/hexalpha/DarkTrace-X/main/docs/images/cover.png" alt="DarkTrace-X project" loading="lazy" />
-          <div class="project__scan" aria-hidden="true"></div>
-          <span class="project__index">01 / FLAGSHIP</span>
-        </div>
-        <div class="project__content">
-          <p class="overline">DEFENSIVE THREAT INTELLIGENCE</p>
-          <h3>DarkTrace-X</h3>
-          <p>
-            A defensive workspace combining IOC workflows, collection pipelines,
-            investigations, alerts, reports and a local AI copilot.
-          </p>
-          <div class="chip-row">
-            <span>Next.js</span><span>FastAPI</span><span>PostgreSQL</span>
-            <span>Redis</span><span>Elasticsearch</span><span>Qwen GGUF</span>
+      <div class="rail-title reveal"><span>03</span><p>FEATURED PROJECTS</p></div>
+      <div class="section-head reveal">
+        <h2>Built for the <span>real world.</span></h2>
+        <p>Four active engineering tracks spanning threat intelligence, local AI, cyber operations and authorized security assessments. Status is shown honestly.</p>
+      </div>
+      <div class="project-toolbar reveal" role="group" aria-label="Filter projects">
+        <button class="filter-chip active" data-filter="all" aria-pressed="true">All projects <span>04</span></button>
+        <button class="filter-chip" data-filter="intelligence" aria-pressed="false">Threat intelligence</button>
+        <button class="filter-chip" data-filter="ai" aria-pressed="false">Local AI</button>
+        <button class="filter-chip" data-filter="security" aria-pressed="false">Security testing</button>
+      </div>
+      <div class="featured-grid" id="projectGrid">
+        <article class="feature-project feature-project--flagship reveal" data-tags="intelligence ai">
+          <div class="feature-project__art feature-project__art--image">
+            <img src="https://raw.githubusercontent.com/hexalpha/DarkTrace-X/main/docs/images/cover.png" alt="DarkTrace-X cybersecurity dashboard cover" loading="lazy" />
+            <span class="feature-project__number">01 / THREAT INTELLIGENCE</span>
           </div>
-          <div class="project__facts">
-            <p><b>01</b> Evidence-linked investigations</p>
-            <p><b>02</b> Approved-source collection</p>
-            <p><b>03</b> Local AI conversations</p>
-            <p><b>04</b> RBAC, audit & exports</p>
+          <div class="feature-project__body">
+            <div class="feature-project__meta"><span>DEFENSIVE PLATFORM</span><span class="status-tag">LOCAL PREVIEW</span></div>
+            <h3>DarkTrace-X</h3>
+            <p>A threat-intelligence workspace for evidence-backed investigations, approved-source collection and a local AI copilot.</p>
+            <ul class="feature-list">
+              <li>IOC/CVE workflows, threat hunting and asset exposure context</li>
+              <li>Source registry, crawling, parsing and monitoring</li>
+              <li>Qwen GGUF copilot, roles, audit and export pipelines</li>
+            </ul>
+            <div class="chip-row"><span>Next.js</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Elasticsearch</span></div>
+            <div class="feature-links">
+              <a href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noopener noreferrer">Source repository ↗</a>
+              <a href="https://github.com/hexalpha/DarkTrace-X/blob/main/docs/SHOWCASE.md" target="_blank" rel="noopener noreferrer">Screenshots ↗</a>
+            </div>
           </div>
-          <a class="neon-btn neon-btn--small" href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noreferrer"><span>Open repository</span><b>↗</b></a>
-        </div>
-      </article>
-
-      <div class="project-grid">
-        <article class="project-card tilt reveal">
-          <p class="overline">ANDROID / SYSTEM TOOLING</p>
-          <h3>Kaorios-Toolbox</h3>
-          <p>Device customization, diagnostics, framework patching and GitHub Actions workflows.</p>
-          <a href="https://github.com/hexalpha/Kaorios-Toolbox" target="_blank" rel="noreferrer">EXPLORE ↗</a>
         </article>
-        <article class="project-card project-card--violet tilt reveal" data-delay="80">
-          <p class="overline">AI SECURITY / RESEARCH</p>
-          <h3>Hex Alpha</h3>
-          <p>Local-model security research around knowledge, controlled tool orchestration and defensive automation.</p>
-          <span>BUILDING NOW // α</span>
+        <article class="feature-project tilt reveal" data-tags="ai security">
+          <div class="feature-project__art feature-project__art--alpha" aria-hidden="true">
+            <span class="feature-project__number">02 / LOCAL AI RESEARCH</span>
+            <div class="feature-project__symbol">H<span>α</span></div>
+            <div class="feature-project__code">OLLAMA / GGUF<br>LOCAL INFERENCE<br>CONTROLLED TOOLS</div>
+          </div>
+          <div class="feature-project__body">
+            <div class="feature-project__meta"><span>AI RESEARCH</span><span class="status-tag status-tag--amber">EXPERIMENTAL</span></div>
+            <h3>Hex-Alpha LLM</h3>
+            <p>Personal local-LLM research focused on Hindi/English assistance, cybersecurity reasoning and controlled tool orchestration.</p>
+            <ul class="feature-list">
+              <li>Quantized Qwen models, Ollama and llama.cpp experiments</li>
+              <li>Speech pipeline experiments with Whisper and Piper</li>
+              <li>Kali/MCP integration prototypes and permission boundaries</li>
+            </ul>
+            <div class="chip-row"><span>Python</span><span>Qwen</span><span>GGUF</span><span>Ollama</span><span>MCP</span></div>
+            <div class="feature-links"><span class="feature-note">Local R&amp;D — no verified public code release yet</span></div>
+          </div>
+        </article>
+        <article class="feature-project tilt reveal" data-tags="intelligence ai">
+          <div class="feature-project__art feature-project__art--alert" aria-hidden="true">
+            <span class="feature-project__number">03 / CYBER OPERATIONS</span>
+            <div class="feature-project__symbol feature-project__symbol--alert">HEX<br>ALERT</div>
+            <div class="feature-project__code">COLLECT → REVIEW → ROUTE<br>DISCORD / JOBS / CVEs</div>
+          </div>
+          <div class="feature-project__body">
+            <div class="feature-project__meta"><span>SECURITY AUTOMATION</span><span class="status-tag">SOURCE PREVIEW</span></div>
+            <h3>HEX ALERT</h3>
+            <p>Self-hosted security news, vulnerability and cybersecurity job discovery platform with a Discord bot and admin dashboard.</p>
+            <ul class="feature-list">
+              <li>Public RSS/JSON feeds, normalized jobs and deduplication</li>
+              <li>Discord category routing, scheduler, alerts and slash commands</li>
+              <li>PostgreSQL, system health, test mode and optional GGUF assistant</li>
+            </ul>
+            <div class="chip-row"><span>Python</span><span>FastAPI</span><span>Discord</span><span>Docker</span><span>PostgreSQL</span></div>
+            <div class="feature-links">
+              <a href="https://github.com/hexalpha/HEX-ALERT" target="_blank" rel="noopener noreferrer">Source repository ↗</a>
+              <a href="https://github.com/hexalpha/HEX-ALERT/blob/main/docs/SHOWCASE.md" target="_blank" rel="noopener noreferrer">Screenshot tour ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="feature-project tilt reveal" data-tags="security ai">
+          <div class="feature-project__art feature-project__art--bounty" aria-hidden="true">
+            <span class="feature-project__number">04 / AUTHORIZED VAPT</span>
+            <div class="feature-project__symbol feature-project__symbol--bounty">HB</div>
+            <div class="feature-project__code">KALI / GO / REACT<br>OLLAMA / APPROVALS<br>SCOPED WORKFLOWS</div>
+          </div>
+          <div class="feature-project__body">
+            <div class="feature-project__meta"><span>AI SECURITY WORKSPACE</span><span class="status-tag status-tag--amber">IN DEVELOPMENT</span></div>
+            <h3>HexBounty</h3>
+            <p>Local AI-assisted VAPT workspace integrating Kali tool proposals, review gates and evidence-driven assessment workflows.</p>
+            <ul class="feature-list">
+              <li>Go API, React dashboard, PostgreSQL and Docker Compose</li>
+              <li>Ollama / Heretic inference and validated command proposals</li>
+              <li>Scope enforcement, approvals, execution events and audit trails</li>
+            </ul>
+            <div class="chip-row"><span>Go</span><span>React</span><span>Kali Linux</span><span>Ollama</span><span>Docker</span></div>
+            <div class="feature-links"><span class="feature-note">Local build — full autonomous tool workflows not yet verified</span></div>
+          </div>
         </article>
       </div>
+      <p class="project-disclaimer reveal">All security testing is intended for explicitly authorized environments. Local prototypes and public source previews are not presented as production-certified deployments.</p>
     </section>
 
     <section class="section shell" id="focus">
@@ -241,12 +300,40 @@ build → test → defend<span class="caret">_</span></code></pre>
       </div>
     </section>
 
-    <section class="cta shell reveal">
-      <div>
-        <p class="overline">OPEN SOURCE / SECURITY / AI</p>
-        <h2>Explore the work.<br><span>Follow the build.</span></h2>
+    <section class="section shell contact-section" id="contact">
+      <div class="rail-title reveal"><span>05</span><p>CONTACT / RESUME</p></div>
+      <div class="contact-layout">
+        <div class="contact-intro reveal">
+          <p class="overline">LET'S BUILD SOMETHING SECURE</p>
+          <h2>Have a project?<br><span>Let's connect.</span></h2>
+          <p>Open to conversations about cybersecurity engineering, VAPT, SOC workflows, local AI, security tooling and collaboration.</p>
+          <div class="contact-availability"><i></i> AVAILABLE FOR RELEVANT OPPORTUNITIES</div>
+        </div>
+        <div class="contact-panel reveal" data-delay="100">
+          <a class="contact-action contact-action--primary" href="mailto:junelmohmmad1234@gmail.com?subject=Hello%20Junel%20%E2%80%94%20Cybersecurity%20Opportunity" aria-label="Email Junel through your mail application">
+            <span class="contact-action__icon" aria-hidden="true">✉</span>
+            <span><small>EMAIL ME</small><strong>junelmohmmad1234@gmail.com</strong></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="contact-action" href="./resume.html">
+            <span class="contact-action__icon" aria-hidden="true">↧</span>
+            <span><small>RESUME</small><strong>View / Save as PDF</strong></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="contact-action" href="https://www.linkedin.com/in/junel123" target="_blank" rel="noopener noreferrer">
+            <span class="contact-action__icon" aria-hidden="true">in</span>
+            <span><small>CONNECT</small><strong>LinkedIn</strong></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="contact-action" href="https://github.com/hexalpha" target="_blank" rel="noopener noreferrer">
+            <span class="contact-action__icon" aria-hidden="true">GH</span>
+            <span><small>EXPLORE</small><strong>github.com/hexalpha</strong></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <button type="button" class="copy-email" id="copyEmail">Copy email address <span aria-hidden="true">⧉</span></button>
+          <span id="copyFeedback" class="sr-only" role="status" aria-live="polite"></span>
+        </div>
       </div>
-      <a class="neon-btn" href="https://github.com/hexalpha" target="_blank" rel="noreferrer"><span>@hexalpha on GitHub</span><b>↗</b></a>
     </section>
   </main>
 
@@ -261,11 +348,11 @@ build → test → defend<span class="caret">_</span></code></pre>
 
   <aside class="ai-panel" id="aiPanel" aria-hidden="true">
     <header>
-      <div><b>HEXAI</b><span>portfolio copilot</span></div>
+      <div><b>HEXAI</b><span>interactive portfolio guide · offline</span></div>
       <button id="aiClose" aria-label="Close assistant">×</button>
     </header>
     <div class="ai-log" id="aiLog">
-      <div class="bot-msg">Ask me about Junel's projects, skills, DarkTrace-X, Kali/Linux or current focus.</div>
+      <div class="bot-msg">Ask about DarkTrace-X, Hex-Alpha LLM, HEX ALERT, HexBounty, skills or contact. This is an on-page project guide, not a connected LLM.</div>
     </div>
     <form id="aiForm">
       <input id="aiInput" autocomplete="off" placeholder="Ask HexAI..." />
@@ -279,8 +366,9 @@ build → test → defend<span class="caret">_</span></code></pre>
       <button data-jump="#projects"><b>01</b> Open projects</button>
       <button data-jump="#arsenal"><b>02</b> View cyber arsenal</button>
       <button data-jump="#focus"><b>03</b> Current focus</button>
-      <a href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noreferrer"><b>04</b> DarkTrace-X ↗</a>
-      <a href="https://github.com/hexalpha" target="_blank" rel="noreferrer"><b>05</b> GitHub profile ↗</a>
+      <button data-jump="#contact"><b>04</b> Contact / Gmail</button>
+      <a href="./resume.html"><b>05</b> View resume ↗</a>
+      <a href="https://github.com/hexalpha" target="_blank" rel="noopener noreferrer"><b>06</b> GitHub profile ↗</a>
     </div>
   </div>
 

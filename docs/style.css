@@ -278,3 +278,18 @@ button{font:inherit}
 }
 
 @media(prefers-reduced-motion:reduce){.js-motion .reveal{opacity:1!important;transform:none!important}}
+
+
+/* Single-photo layout: only the hero uses the original portrait.
+   About retains the side-by-side story with typography, not a repeated photo. */
+.profile-system{position:relative;min-height:430px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;border:1px solid rgba(255,71,80,.26);padding:clamp(20px,4vw,35px);background:radial-gradient(circle at 85% 25%,rgba(255,71,80,.15),transparent 38%),linear-gradient(135deg,#111115,#08080a)}
+.profile-system::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(255,71,80,.09) 30px 31px),repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,71,80,.06) 30px 31px);mask-image:linear-gradient(to right,transparent,#000)}
+.profile-system__label,.profile-system__caption{position:relative;z-index:1;font:500 10px var(--mono);letter-spacing:.2em;color:#c2c1ca}
+.profile-system__label{margin-bottom:35px;color:var(--red)}
+.profile-system__headline{position:relative;z-index:1;font:900 clamp(2.7rem,5.4vw,4.8rem)/.96 var(--sans);letter-spacing:-.075em;color:#f3f4f6}
+.profile-system__headline span{color:var(--red)}
+.profile-system__headline em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--red)}
+.profile-system__grid{position:absolute;right:20px;bottom:55px;display:grid;grid-template-columns:repeat(4,6px);gap:12px}
+.profile-system__grid i{display:block;width:6px;height:6px;border-radius:50%;background:rgba(255,71,80,.7)}
+.profile-system__caption{margin:35px 0 0;padding-top:22px;border-top:1px solid var(--line-strong)}
+@media(max-width:640px){.profile-system{min-height:330px}.profile-system__headline{font-size:clamp(3rem,14vw,4rem)}}

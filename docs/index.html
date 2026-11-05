@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#08080a">
-  <meta name="portfolio-build" content="future-3d-v1-20261105">
+  <meta name="portfolio-build" content="nexus-v2-20261105">
   <meta name="description" content="Junel Mohammad — cybersecurity, security engineering, local AI and threat intelligence portfolio.">
   <meta property="og:title" content="Junel Mohammad — Portfolio">
   <meta property="og:description" content="Cybersecurity × Security Engineering × Local AI">
@@ -16,8 +16,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css?v=future3d1">
   <link rel="stylesheet" href="./futuristic.css?v=future3d1">
+  <link rel="stylesheet" href="./nexus.css?v=nexus2">
   <script src="./script.js?v=future3d1" defer></script>
   <script src="./futuristic.js?v=future3d1" defer></script>
+  <script src="./nexus.js?v=nexus2" defer></script>
 </head>
 <body class="fx-site">
   <div class="cursor-halo" id="cursorHalo" aria-hidden="true"></div>
@@ -33,6 +35,7 @@
       <span class="logo__wordmark">JUNEL <span class="logo__last">MOHAMMAD</span><span class="logo__dot">.</span></span>
     </a>
     <nav id="navigation" aria-label="Main navigation">
+      <a href="#nexus" data-nav="nexus">NEXUS</a>
       <a href="#about" data-nav="about">ABOUT</a>
       <a href="#work" data-nav="work">WORK</a>
       <a href="#expertise" data-nav="expertise">EXPERTISE</a>
@@ -78,7 +81,7 @@
           <div class="portrait__top"><span>01 / IDENTITY</span><span>HEXALPHA ARCHIVE</span></div>
           <div class="portrait__panel">
             <div class="portrait__red"></div>
-            <img src="./portrait-themed.jpg?v=single-photo-20261105" alt="Junel Mohammad in a maroon formal suit against a black-red cyber background" width="1122" height="1402" fetchpriority="high">
+            <img src="./portrait-themed.jpg?v=nexus2" alt="Junel Mohammad in a maroon formal suit against a black-red cyber background" width="1122" height="1402" fetchpriority="high">
             <div class="portrait__shade"></div>
             <div class="fx-portrait-corners" aria-hidden="true"></div><span class="fx-portrait-badge">IDENTITY // JUNEL</span>
             <span class="portrait__corner portrait__corner--tl"></span>
@@ -89,6 +92,48 @@
         </div>
       </div>
       <a href="#about" class="scroll-cue"><span class="scroll-cue__line"></span> SCROLL TO REVEAL <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="hx-command-deck section-anchor" id="nexus" aria-labelledby="hxDeckTitle">
+      <div class="container">
+        <div class="hx-deck-top reveal">
+          <div><p class="eyebrow eyebrow--red">02 / HEXALPHA NEURAL INTERFACE</p><h2 id="hxDeckTitle">BEYOND THE <em>INTERFACE.</em></h2><p>Explore how my security projects connect. An interactive architectural map — not a live security monitor or AI backend.</p></div>
+          <div class="hx-deck-id"><span class="hx-status-dot"></span><span>VISUALIZATION / LOCAL ONLY</span><strong>Hα / NEXUS</strong></div>
+        </div>
+        <div class="hx-deck-shell reveal" id="hxDeck">
+          <div class="hx-deck-bar"><span>HEXALPHA :: SYSTEM TOPOLOGY</span><span>SELECT A NODE TO EXPLORE</span></div>
+          <div class="hx-deck-layout">
+            <div class="hx-scene" id="hxScene">
+              <div class="hx-scene-halo" aria-hidden="true"></div>
+              <svg class="hx-connections" viewBox="0 0 640 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <defs><linearGradient id="hxWire" x1="0" x2="1"><stop stop-color="#f13c57" stop-opacity=".1"/><stop offset=".55" stop-color="#ff5269" stop-opacity=".85"/><stop offset="1" stop-color="#f13c57" stop-opacity=".1"/></linearGradient></defs>
+                <path d="M320 280 L320 95 M320 280 L510 200 M320 280 L490 405 M320 280 L150 405 M320 280 L130 200" fill="none" stroke="url(#hxWire)" stroke-width="1.5" stroke-dasharray="5 8"/>
+                <circle cx="320" cy="280" r="132" fill="none" stroke="#ff3654" stroke-opacity=".2" stroke-dasharray="2 13"/>
+                <circle cx="320" cy="280" r="208" fill="none" stroke="#ff3654" stroke-opacity=".14"/>
+                <circle cx="320" cy="280" r="240" fill="none" stroke="#ff3654" stroke-opacity=".08" stroke-dasharray="2 9"/>
+              </svg>
+              <div class="hx-core" aria-hidden="true"><span class="hx-core__ring"></span><span class="hx-core__ring"></span><span class="hx-core__ring"></span><span class="hx-core__text">Hα<small>CORE</small></span></div>
+              <button type="button" class="hx-node hx-node--intel is-selected" data-hx-node="intel" aria-pressed="true"><span>01</span><strong>INTEL</strong></button>
+              <button type="button" class="hx-node hx-node--alert" data-hx-node="alert" aria-pressed="false"><span>02</span><strong>ALERT</strong></button>
+              <button type="button" class="hx-node hx-node--assess" data-hx-node="assess" aria-pressed="false"><span>03</span><strong>ASSESS</strong></button>
+              <button type="button" class="hx-node hx-node--ai" data-hx-node="ai" aria-pressed="false"><span>04</span><strong>LOCAL AI</strong></button>
+              <button type="button" class="hx-node hx-node--defend" data-hx-node="defend" aria-pressed="false"><span>05</span><strong>DEFEND</strong></button>
+              <span class="hx-coordinate hx-coordinate--a" aria-hidden="true">X: 28.14 / Y: 74.02</span><span class="hx-coordinate hx-coordinate--b" aria-hidden="true">SECURE BY DESIGN // 2026</span>
+            </div>
+            <aside class="hx-inspector" aria-live="polite" aria-atomic="true">
+              <div class="hx-inspector__top"><span>MODULE INSPECTOR</span><span id="hxNodeIndex">01 / 05</span></div>
+              <div class="hx-inspector__glyph" id="hxGlyph" aria-hidden="true">◇</div>
+              <p class="hx-inspector__label" id="hxNodeLabel">THREAT INTELLIGENCE</p>
+              <h3 id="hxNodeTitle">DarkTrace-X</h3>
+              <p id="hxNodeDescription">Source discovery, collection and investigation workflows for threat intelligence.</p>
+              <div class="hx-inspector__metrics"><div><span>DOMAIN</span><strong id="hxNodeDomain">INTELLIGENCE</strong></div><div><span>STACK</span><strong id="hxNodeStack">NEXT.JS / FASTAPI</strong></div></div>
+              <a id="hxNodeLink" class="hx-inspector__link" href="#work">EXPLORE PROJECTS <span aria-hidden="true">↗</span></a>
+              <div class="hx-inspector__foot">INTERACTIVE CONCEPT MAP <span>NO LIVE DATA</span></div>
+            </aside>
+          </div>
+          <div class="hx-deck-bottom"><span>INTERACTIVE SYSTEM ARCHITECTURE</span><span>DRAG-FREE / TOUCH-READY / ACCESSIBLE</span></div>
+        </div>
+      </div>
     </section>
 
     <section class="story split section-anchor" id="about">
@@ -285,6 +330,7 @@ Type "help" or select a quick command below.</div>
   </footer>
   <nav class="fx-pager" aria-label="Page sections">
     <a href="#top" class="is-active" aria-label="Intro"></a>
+    <a href="#nexus" aria-label="Neural nexus"></a>
     <a href="#about" aria-label="About"></a>
     <a href="#work" aria-label="Projects"></a>
     <a href="#expertise" aria-label="Expertise"></a>
@@ -298,6 +344,7 @@ Type "help" or select a quick command below.</div>
     <input id="fxSearch" class="fx-dialog__search" type="search" placeholder="Search page sections or links..." autocomplete="off">
     <div class="fx-dialog__list">
       <button type="button" data-fx-command="home">⌂ INTRO <span>↗</span></button>
+      <button type="button" data-fx-command="nexus">⬡ NEURAL NEXUS <span>↗</span></button>
       <button type="button" data-fx-command="about">◈ ABOUT <span>↗</span></button>
       <button type="button" data-fx-command="projects">⬡ PROJECTS <span>↗</span></button>
       <button type="button" data-fx-command="expertise">▱ EXPERTISE <span>↗</span></button>

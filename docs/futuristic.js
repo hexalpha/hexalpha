@@ -21,7 +21,7 @@
   button?.addEventListener('click', () => {motion = !motion;applyMotion()});
   applyMotion();
 
-  const targets = {home:'#top',about:'#about',projects:'#work',expertise:'#expertise',contact:'#contact',console:'#lab'};
+  const targets = {nexus:'#nexus',home:'#top',about:'#about',projects:'#work',expertise:'#expertise',contact:'#contact',console:'#lab'};
   function navigate(id) {
     const target = targets[id];
     if (target) document.querySelector(target)?.scrollIntoView({behavior:motion?'smooth':'auto'});
@@ -110,7 +110,7 @@
   const rail=$$('.fx-pager a');
   let scheduled=false;
   function trackScroll(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{
-    scheduled=false;const ids=['top','about','work','expertise','lab','contact'];let selected='top';
+    scheduled=false;const ids=['top','nexus','about','work','expertise','lab','contact'];let selected='top';
     ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*.48)selected=id});
     rail.forEach(a=>a.classList.toggle('is-active',a.getAttribute('href')==='#'+selected));
     topBtn?.classList.toggle('is-shown',scrollY>650);

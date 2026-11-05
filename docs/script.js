@@ -3,115 +3,133 @@
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const intro = $('#intro');
+  if ('IntersectionObserver' in window && !reducedMotion) document.documentElement.classList.add('js-motion');
+
   const header = $('#header');
   const progress = $('#pageProgress');
   const nav = $('#navigation');
   const menu = $('#menuToggle');
 
-  const init = () => {
-    if ($('#year')) $('#year').textContent = new Date().getFullYear();
-    window.setTimeout(() => intro?.classList.add('is-hidden'), reducedMotion ? 50 : 900);
-
-    if ('IntersectionObserver' in window && !reducedMotion) {
-      const observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      }, { threshold: .10, rootMargin: '0px 0px -40px 0px' });
-      $$('.reveal').forEach(el => {
-        const delay = Number(el.dataset.delay || 0);
-        el.style.setProperty('--reveal-delay', `${Math.min(Math.max(delay,0),300)}ms`);
-        observer.observe(el);
+  function initReveals() {
+    const items = $$('.reveal');
+    if (!('IntersectionObserver' in window) || reducedMotion) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
-    } else $$('.reveal').forEach(el => el.classList.add('is-visible'));
+    }, {threshold:.12, rootMargin:'0px 0px -30px 0px'});
+    items.forEach(el => {
+      const delay = Number(el.dataset.delay || 0);
+      el.style.setProperty('--reveal-delay', `${Math.max(0, Math.min(delay, 320))}ms`);
+      observer.observe(el);
+    });
+  }
 
-    const handleScroll = () => {
+  function initScrollState() {
+    const anchors = ['about','work','expertise','contact','summary','experience','skills','education'];
+    const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
-      header.classList.toggle('is-scrolled', window.scrollY > 24);
-      const ids = ['about','work','systems','contact'];
+      if (progress) progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+      header?.classList.toggle('is-scrolled', window.scrollY > 12);
       let active = '';
-      for (const id of ids) {
+      anchors.forEach(id => {
         const section = document.getElementById(id);
         if (section && section.getBoundingClientRect().top <= 150) active = id;
-      }
-      $$('[data-nav]').forEach(el => el.classList.toggle('is-active', el.dataset.nav === active));
+      });
+      $$('[data-nav]').forEach(link => {
+        const id = link.dataset.nav;
+        link.classList.toggle('is-active', id === active);
+      });
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
 
-    menu?.addEventListener('click', () => {
+  function initMenu() {
+    if (!menu || !nav) return;
+    menu.addEventListener('click', () => {
       const open = !nav.classList.contains('is-open');
       nav.classList.toggle('is-open', open);
       menu.setAttribute('aria-expanded', String(open));
     });
     $$('#navigation a').forEach(link => link.addEventListener('click', () => {
       nav.classList.remove('is-open');
-      menu?.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-expanded', 'false');
     }));
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') { nav.classList.remove('is-open'); menu?.setAttribute('aria-expanded', 'false'); }
+      if (event.key === 'Escape') {
+        nav.classList.remove('is-open');
+        menu.setAttribute('aria-expanded', 'false');
+      }
     });
+  }
 
-    if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
-      const halo = $('#cursorHalo');
-      const portrait = $('#portrait');
+  function initCursorHalo() {
+    if (reducedMotion || !window.matchMedia('(pointer:fine)').matches) return;
+    const halo = $('#cursorHalo');
+    const portrait = $('#portrait');
+    if (halo) {
       document.addEventListener('pointermove', event => {
-        if (halo) {
-          halo.style.left = `${event.clientX}px`;
-          halo.style.top = `${event.clientY}px`;
-          halo.classList.add('on');
-        }
-      }, { passive:true });
-      portrait?.addEventListener('pointermove', event => {
+        halo.style.left = `${event.clientX}px`;
+        halo.style.top = `${event.clientY}px`;
+        halo.classList.add('on');
+      }, {passive:true});
+    }
+    if (portrait) {
+      portrait.addEventListener('pointermove', event => {
         const box = portrait.getBoundingClientRect();
         const x = ((event.clientX - box.left) / box.width) - .5;
         const y = ((event.clientY - box.top) / box.height) - .5;
-        portrait.style.transform = `perspective(950px) rotateY(${x * 8}deg) rotateX(${-y * 7}deg)`;
+        portrait.style.transform = `perspective(1000px) rotateY(${x * 7}deg) rotateX(${-y * 6}deg)`;
       }, {passive:true});
-      portrait?.addEventListener('pointerleave', () => portrait.style.transform = '');
-      renderParticles();
+      portrait.addEventListener('pointerleave', () => portrait.style.transform = '');
     }
-  };
-
-  function renderParticles() {
-    const canvas = $('#particles');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d', {alpha:true});
-    if (!ctx) return;
-    let width = 0, height = 0, ratio = 1, tick = 0, dots = [];
-    const resize = () => {
-      ratio = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth; height = window.innerHeight;
-      canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
-      canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const count = Math.max(18, Math.min(50, Math.round(width / 35)));
-      dots = Array.from({length:count},(_,i) => ({x:(i * 61.3 + 17) % width,y:(i * 93.7 + 43) % height,s:2 + i % 3,speed:.12 + (i % 5)*.09,rotation:i*.7,shade:i % 4 === 0}));
-    };
-    resize();
-    window.addEventListener('resize',resize,{passive:true});
-    let visible = true;
-    document.addEventListener('visibilitychange',()=>{ visible = !document.hidden; });
-    const draw = () => {
-      window.requestAnimationFrame(draw);
-      if (!visible) return;
-      ctx.clearRect(0,0,width,height);
-      tick += 1;
-      for (const p of dots) {
-        p.y -= p.speed;
-        if (p.y < -8) {p.y=height+8;p.x=(p.x+193)%width;}
-        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation + tick*.0008);
-        ctx.fillStyle = p.shade ? 'rgba(245,71,80,.55)' : 'rgba(220,223,228,.38)';
-        ctx.beginPath();ctx.moveTo(0,-p.s);ctx.lineTo(p.s*.8,p.s);ctx.lineTo(-p.s*.8,p.s);ctx.closePath();ctx.fill();ctx.restore();
-      }
-    };
-    draw();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
+  function initMagneticButtons() {
+    if (reducedMotion || !window.matchMedia('(pointer:fine)').matches) return;
+    $$('.magnetic').forEach(button => {
+      button.addEventListener('pointermove', event => {
+        const box = button.getBoundingClientRect();
+        const x = event.clientX - box.left - box.width / 2;
+        const y = event.clientY - box.top - box.height / 2;
+        button.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+      });
+      button.addEventListener('pointerleave', () => button.style.transform = '');
+    });
+  }
+
+  function initResumePrint() {
+    $('#printResume')?.addEventListener('click', () => window.print());
+  }
+
+  function initYear() {
+    const year = $('#year');
+    if (year) year.textContent = new Date().getFullYear();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initYear();
+      initResumePrint();
+      initReveals();
+      initScrollState();
+      initMenu();
+      initCursorHalo();
+      initMagneticButtons();
+    }, {once:true});
+  } else {
+    initYear();
+    initResumePrint();
+    initReveals();
+    initScrollState();
+    initMenu();
+    initCursorHalo();
+    initMagneticButtons();
+  }
 })();

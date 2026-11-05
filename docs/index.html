@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#08080a">
-  <meta name="portfolio-build" content="single-photo-20261105">
+  <meta name="portfolio-build" content="future-3d-v1-20261105">
   <meta name="description" content="Junel Mohammad — cybersecurity, security engineering, local AI and threat intelligence portfolio.">
   <meta property="og:title" content="Junel Mohammad — Portfolio">
   <meta property="og:description" content="Cybersecurity × Security Engineering × Local AI">
@@ -14,11 +14,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=single-photo-20261105">
-  <script src="./script.js?v=single-photo-20261105" defer></script>
+  <link rel="stylesheet" href="./style.css?v=future3d1">
+  <link rel="stylesheet" href="./futuristic.css?v=future3d1">
+  <script src="./script.js?v=future3d1" defer></script>
+  <script src="./futuristic.js?v=future3d1" defer></script>
 </head>
-<body>
+<body class="fx-site">
   <div class="cursor-halo" id="cursorHalo" aria-hidden="true"></div>
+  <div class="fx-vignette" aria-hidden="true"></div>
+  <canvas id="fx-stars" aria-hidden="true"></canvas>
   <div class="scanlines" aria-hidden="true"></div>
   <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,6 +39,11 @@
       <a href="#contact" data-nav="contact">CONTACT</a>
       <a href="./resume.html">RESUME</a>
     </nav>
+    <div class="fx-tools">
+      <span class="fx-live">PORTFOLIO / ONLINE</span>
+      <button class="fx-btn" id="fxCommandTrigger" type="button" aria-label="Search portfolio commands">⌘ K</button>
+      <button class="fx-btn fx-motion-btn" id="fxMotion" type="button" aria-pressed="true" title="Toggle decorative 3D motion">3D ON</button>
+    </div>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navigation">
       <span></span><span></span>
     </button>
@@ -43,8 +52,10 @@
   <main id="main">
     <section id="top" class="hero container section-anchor">
       <p class="hero__giant" aria-hidden="true">PORTFOLIO</p>
+      <div class="fx-hero-scene" aria-hidden="true"><span class="fx-orbit"></span><span class="fx-orbit"></span><span class="fx-orbit"></span></div>
       <div class="hero__left reveal">
         <p class="eyebrow"><span class="eyebrow__line"></span> THE PERSONAL PORTFOLIO / 2026</p>
+        <div class="fx-hero-kicker"><span>CYBERSECURITY // NEXT-GEN INTERFACE</span></div>
         <p class="hero__hello">Hello, I’m</p>
         <h1 class="hero__title">
           <span class="hero__name">JUNEL<span class="period">.</span></span>
@@ -60,6 +71,7 @@
           <div><span class="meta__label">BASED IN</span><strong>RAJASTHAN, INDIA</strong></div>
           <div><span class="meta__label">FOCUS</span><strong>BUILD · TEST · DEFEND</strong></div>
         </div>
+        <div class="fx-telemetry" aria-label="Areas of practice"><span>◈ THREAT INTELLIGENCE</span><span>◈ SECURITY WORKFLOWS</span><span>◈ PRIVATE AI</span></div>
       </div>
       <div class="hero__right reveal" data-delay="160">
         <div class="portrait" id="portrait">
@@ -68,6 +80,7 @@
             <div class="portrait__red"></div>
             <img src="./portrait-themed.jpg?v=single-photo-20261105" alt="Junel Mohammad in a maroon formal suit against a black-red cyber background" width="1122" height="1402" fetchpriority="high">
             <div class="portrait__shade"></div>
+            <div class="fx-portrait-corners" aria-hidden="true"></div><span class="fx-portrait-badge">IDENTITY // JUNEL</span>
             <span class="portrait__corner portrait__corner--tl"></span>
             <span class="portrait__corner portrait__corner--br"></span>
           </div>
@@ -84,6 +97,7 @@
           <div class="frame-card frame-card--image">
             <div class="frame-card__top"><span>02 / ABOUT</span><span>PROFILE MATRIX</span></div>
             <div class="profile-system" aria-label="Build, test and defend cybersecurity mindset">
+              <div class="fx-reactor" aria-hidden="true"><span></span><span></span><span></span></div>
               <span class="profile-system__label">HEXALPHA // 01</span>
               <strong class="profile-system__headline">BUILD<span>.</span><br><em>TEST.</em><br>DEFEND<span>.</span></strong>
               <div class="profile-system__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -141,27 +155,34 @@
             <h2>Work that<br><em>does something.</em></h2>
             <p>Selected projects that reflect my security engineering, automation and local AI direction.</p>
           </article>
-          <article class="flow-card reveal project-flow">
+          <div id="fxFilters" class="fx-filter-bar reveal" role="group" aria-label="Filter projects">
+            <button type="button" class="fx-chip" data-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" class="fx-chip" data-filter="platform" aria-pressed="false">PLATFORMS</button>
+            <button type="button" class="fx-chip" data-filter="automation" aria-pressed="false">AUTOMATION</button>
+            <button type="button" class="fx-chip" data-filter="ai" aria-pressed="false">LOCAL AI</button>
+            <span id="fxFilterStatus" class="fx-filter-status" role="status" aria-live="polite">4 projects shown</span>
+          </div>
+          <article class="flow-card reveal project-flow" data-category="platform">
             <span class="flow-card__index">01</span>
             <h3>DarkTrace-X</h3>
             <p>A threat-intelligence workspace for source discovery, collection, investigation workflows and AI-assisted analysis.</p>
             <div class="tags"><span>NEXT.JS</span><span>FASTAPI</span><span>PYTHON</span><span>THREAT INTEL</span></div>
             <a class="inline-link" href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
           </article>
-          <article class="flow-card reveal project-flow">
+          <article class="flow-card reveal project-flow" data-category="automation">
             <span class="flow-card__index">02</span>
             <h3>HEX ALERT</h3>
             <p>Multi-source cybersecurity news and vulnerability aggregation with Discord routing, scheduling and a FastAPI dashboard.</p>
             <div class="tags"><span>PYTHON</span><span>DISCORD</span><span>POSTGRESQL</span></div>
             <a class="inline-link" href="https://github.com/hexalpha/HEX-ALERT" target="_blank" rel="noopener noreferrer">VIEW REPOSITORY ↗</a>
           </article>
-          <article class="flow-card reveal project-flow">
+          <article class="flow-card reveal project-flow" data-category="platform">
             <span class="flow-card__index">03</span>
             <h3>HexBounty</h3>
             <p>A local-development workspace for scope-aware, operator-approved security assessments and auditable tool execution.</p>
             <div class="tags"><span>GO</span><span>REACT</span><span>DOCKER</span><span>OLLAMA</span></div>
           </article>
-          <article class="flow-card reveal project-flow">
+          <article class="flow-card reveal project-flow" data-category="ai">
             <span class="flow-card__index">04</span>
             <h3>Hex-Alpha LLM</h3>
             <p>Personal local AI experiments using Ollama, llama.cpp and quantized models for privacy-focused assistance and controlled tooling.</p>
@@ -176,10 +197,8 @@
         <div class="split__sticky reveal">
           <div class="frame-card frame-card--systems">
             <div class="frame-card__top"><span>04 / EXPERTISE</span><span>OPERATING MODEL</span></div>
-            <div class="systems-grid">
-              <span>LINUX</span><span>PYTHON</span><span>NETWORKING</span><span>WEB PENTEST</span>
-              <span>FASTAPI</span><span>DOCKER</span><span>LOCAL AI</span><span>REPORTING</span>
-            </div>
+            <div class="systems-grid"><button type="button" class="fx-skill" data-skill="LINUX" aria-pressed="false" aria-label="View LINUX expertise">LINUX</button><button type="button" class="fx-skill" data-skill="PYTHON" aria-pressed="false" aria-label="View PYTHON expertise">PYTHON</button><button type="button" class="fx-skill" data-skill="NETWORKING" aria-pressed="false" aria-label="View NETWORKING expertise">NETWORKING</button><button type="button" class="fx-skill" data-skill="WEB PENTEST" aria-pressed="false" aria-label="View WEB PENTEST expertise">WEB PENTEST</button><button type="button" class="fx-skill" data-skill="FASTAPI" aria-pressed="false" aria-label="View FASTAPI expertise">FASTAPI</button><button type="button" class="fx-skill" data-skill="DOCKER" aria-pressed="false" aria-label="View DOCKER expertise">DOCKER</button><button type="button" class="fx-skill" data-skill="LOCAL AI" aria-pressed="false" aria-label="View LOCAL AI expertise">LOCAL AI</button><button type="button" class="fx-skill" data-skill="REPORTING" aria-pressed="false" aria-label="View REPORTING expertise">REPORTING</button></div>
+            <div id="fxSkillDetail" class="fx-skill-detail" role="status" aria-live="polite">Select a skill above to see its practical focus.</div>
             <div class="frame-lines"></div>
           </div>
         </div>
@@ -213,6 +232,32 @@
       </div>
     </section>
 
+    <section class="fx-lab section-anchor" id="lab" aria-labelledby="fxLabTitle">
+      <div class="container">
+        <div class="fx-lab__head reveal">
+          <div><p class="eyebrow eyebrow--red">05 / INTERACTIVE EXPERIENCE</p><h2 id="fxLabTitle">THE SYSTEM <em>CONSOLE.</em></h2></div>
+          <p class="fx-lab__note">A local, browser-based portfolio explorer. Select a command to learn about my work. No terminal or security scans are executed.</p>
+        </div>
+        <div class="fx-terminal reveal">
+          <div class="fx-terminal__bar"><i></i><i></i><i></i><span>hexalpha // portfolio interface</span></div>
+          <div id="fxTermOutput" class="fx-terminal__output" role="log" aria-live="polite" aria-label="Portfolio terminal output">HEXALPHA / SYSTEM CONSOLE v1.0
+Interactive portfolio guide — no system commands executed.
+Type "help" or select a quick command below.</div>
+          <form id="fxTermForm" class="fx-terminal__form" autocomplete="off">
+            <label for="fxTermInput">λ</label><input id="fxTermInput" type="text" maxlength="70" spellcheck="false" placeholder="try: whoami, projects, skills, links" aria-label="Portfolio guide command">
+            <button class="fx-btn" type="submit">RUN ↵</button>
+          </form>
+        </div>
+        <div class="fx-terminal__quick" role="group" aria-label="Quick portfolio commands">
+          <button type="button" class="fx-chip" data-fx-term="whoami">WHOAMI</button>
+          <button type="button" class="fx-chip" data-fx-term="projects">PROJECTS</button>
+          <button type="button" class="fx-chip" data-fx-term="skills">SKILLS</button>
+          <button type="button" class="fx-chip" data-fx-term="contact">CONTACT</button>
+          <button type="button" class="fx-chip" data-fx-term="clear">CLEAR</button>
+        </div>
+        <p class="fx-terminal__foot">PUBLIC PORTFOLIO GUIDE / NO BACKEND ACCESS / NO TRACKING</p>
+      </div>
+    </section>
     <section class="contact section-anchor" id="contact">
       <div class="container contact__box reveal">
         <p class="eyebrow eyebrow--red">CONTACT</p>
@@ -238,5 +283,31 @@
     </div>
     <span>© <span id="year"></span> Junel Mohammad</span>
   </footer>
+  <nav class="fx-pager" aria-label="Page sections">
+    <a href="#top" class="is-active" aria-label="Intro"></a>
+    <a href="#about" aria-label="About"></a>
+    <a href="#work" aria-label="Projects"></a>
+    <a href="#expertise" aria-label="Expertise"></a>
+    <a href="#lab" aria-label="Interactive console"></a>
+    <a href="#contact" aria-label="Contact"></a>
+  </nav>
+  <button type="button" id="fxBackTop" class="fx-back-to-top" aria-label="Back to top">↑</button>
+  <dialog id="fxPalette" class="fx-dialog" aria-labelledby="fxPaletteTitle">
+    <div class="fx-dialog__head"><h2 id="fxPaletteTitle">HEXALPHA / COMMAND PALETTE</h2><button class="fx-btn" id="fxClose" type="button" aria-label="Close command palette">✕</button></div>
+    <label for="fxSearch" class="skip-link">Search commands</label>
+    <input id="fxSearch" class="fx-dialog__search" type="search" placeholder="Search page sections or links..." autocomplete="off">
+    <div class="fx-dialog__list">
+      <button type="button" data-fx-command="home">⌂ INTRO <span>↗</span></button>
+      <button type="button" data-fx-command="about">◈ ABOUT <span>↗</span></button>
+      <button type="button" data-fx-command="projects">⬡ PROJECTS <span>↗</span></button>
+      <button type="button" data-fx-command="expertise">▱ EXPERTISE <span>↗</span></button>
+      <button type="button" data-fx-command="console">λ CONSOLE <span>↗</span></button>
+      <button type="button" data-fx-command="contact">✳ CONTACT <span>↗</span></button>
+      <button type="button" data-fx-command="resume">▤ RESUME <span>↗</span></button>
+      <button type="button" data-fx-command="github">⌁ GITHUB PROFILE <span>↗</span></button>
+      <button type="button" data-fx-command="email">✉ EMAIL JUNEL <span>↗</span></button>
+      <p id="fxEmpty" class="fx-dialog__empty is-hidden">No matching commands.</p>
+    </div>
+  </dialog>
 </body>
 </html>

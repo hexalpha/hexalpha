@@ -34,3 +34,4 @@ body.motion-off *{animation-play-state:paused!important}body.motion-off .mission
   .arsenal__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:640px){.contact__headline{font-size:clamp(57px,12.7vw,83px)}}
+[hidden]{display:none!important}

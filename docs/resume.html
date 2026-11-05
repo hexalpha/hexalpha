@@ -3,104 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
-  <meta name="description" content="Resume of Junel Mohammad — cybersecurity, security engineering and local AI.">
-  <title>Junel Mohammad — Resume</title>
+  <meta name="theme-color" content="#08070a">
+  <meta name="description" content="Junel Mohammad — public resume covering cybersecurity, engineering projects, skills and education.">
+  <meta name="color-scheme" content="dark">
+  <title>Resume / Junel Mohammad — HEXALPHA</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=future3d1">
-  <link rel="stylesheet" href="./futuristic.css?v=future3d1">
-  <script src="./script.js?v=future3d1" defer></script>
-  <script src="./futuristic.js?v=future3d1" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./singularity.css?v=20261105-1">
+  <link rel="stylesheet" href="./resume.css?v=20261105-1">
 </head>
-<body class="resume-page fx-site">
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
-  <header class="header header--simple" id="header">
-    <a href="./index.html" class="logo" aria-label="Back to portfolio"><span class="logo__icon">Hα</span><span class="logo__wordmark">JUNEL <span class="logo__last">MOHAMMAD</span><span class="logo__dot">.</span></span></a>
-    <nav id="navigation" aria-label="Resume navigation">
-      <a href="#summary" data-nav="summary">SUMMARY</a>
-      <a href="#experience" data-nav="experience">EXPERIENCE</a>
-      <a href="#skills" data-nav="skills">SKILLS</a>
-      <a href="#education" data-nav="education">EDUCATION</a>
-      <a href="#contact" data-nav="contact">CONTACT</a>
-    </nav>
-    <div class="header__tools"><a class="button button--ghost button--small" href="./index.html">PORTFOLIO ↗</a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button></div>
+<body class="resume-page">
+  <a class="skip" href="#resume">Skip to resume</a>
+  <div class="background-grid" aria-hidden="true"></div>
+  <header class="resume-nav">
+    <a href="./index.html" class="site-brand"><span class="site-brand__symbol">H<span>α</span></span><span class="site-brand__name"><strong>HEXALPHA</strong><small>JUNEL MOHAMMAD</small></span></a>
+    <span class="resume-nav__label">PUBLIC / PROFESSIONAL DOSSIER</span>
+    <div class="resume-nav__actions"><a href="./index.html" class="resume-btn">← PORTFOLIO</a><button class="resume-btn resume-btn--red" id="printResume" type="button">PRINT / SAVE PDF ↗</button></div>
   </header>
+  <main id="resume" class="resume-shell">
+    <div class="resume-intro">
+      <span class="resume-intro__stamp">HEXALPHA // PERSONNEL FILE 001</span>
+      <span class="resume-intro__code">CYBERSECURITY / ENGINEERING / AI</span>
+      <h1>JUNEL <em>MOHAMMAD</em><span>.</span></h1>
+      <p>Cybersecurity • Security Engineering • Local AI</p>
+      <div class="resume-identity"><span>RAJASTHAN, INDIA</span><a href="mailto:junelmohmmad1234@gmail.com">junelmohmmad1234@gmail.com ↗</a><a href="https://github.com/hexalpha">github.com/hexalpha ↗</a><a href="https://www.linkedin.com/in/junel123">linkedin.com/in/junel123 ↗</a></div>
+    </div>
 
-  <main class="resume-main container">
-    <section class="resume-hero section-anchor" id="summary">
-      <div class="resume-hero__left reveal">
-        <p class="eyebrow"><span class="eyebrow__line"></span> RESUME / 2026</p>
-        <h1>Junel <span>Mohammad</span></h1>
-        <p class="resume-role">Cybersecurity • Security Engineering • Local AI</p>
-        <div class="resume-actions"><button id="printResume" type="button" class="button button--red">PRINT / SAVE AS PDF ↗</button><a class="button button--ghost" href="./index.html">BACK TO PORTFOLIO ↗</a></div>
-        <p class="resume-summary">Cybersecurity-focused builder with experience across Linux, networking, web security fundamentals, threat-intelligence style workflows, automation and local AI experimentation. Interested in SOC, VAPT, security tooling and practical engineering.</p>
-      </div>
-      <div class="resume-hero__right reveal" data-delay="120">
-        <div class="resume-mini-card">
-          <div><span>LOCATION</span><strong>Rajasthan, India</strong></div>
-          <div><span>EMAIL</span><strong>junelmohmmad1234@gmail.com</strong></div>
-          <div><span>GITHUB</span><strong>github.com/hexalpha</strong></div>
-          <div><span>LINKEDIN</span><strong>linkedin.com/in/junel123</strong></div>
-        </div>
-      </div>
-    </section>
+    <section class="resume-card resume-card--full"><div class="resume-section-label"><span>01 / PROFILE</span><span>SUMMARY</span></div><p class="resume-lead">Cybersecurity-focused practitioner and engineering builder with a Computer Science background. Practical interests include Linux, web security testing, threat intelligence, SOC workflows, Python automation, backend services and private/local AI experimentation. I value repeatable evidence, controlled testing and useful security products.</p></section>
 
-    <section class="resume-section section-anchor" id="experience">
-      <div class="section__top"><span class="section__index">01 / EXPERIENCE</span><span class="section__marker">PRACTICAL WORK</span><span class="section__plus">+</span></div>
-      <div class="resume-list">
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Cybersecurity / VAPT Internship — CyArt LLP</h2><span>2026</span></div><p>Practical security engineering and development work connected with DarkTrace-X, including source discovery, backend services, frontend integration and testing.</p></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Supervisor — Money Construction</h2><span>2025 – Present</span></div><p>Labour expense tracking, site-level operations, diesel/petrol records and related administrative coordination.</p></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Billing Operator — JDVVNL</h2><span>2013 – 2024</span></div><p>Billing operations and administrative support, with a focus on consistent data handling and records.</p></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Computer Administration</h2><span>Additional experience</span></div><p>Office computer operations, reporting, records maintenance and data administration.</p></article>
+    <div class="resume-columns">
+      <div class="resume-column">
+        <section class="resume-card"><div class="resume-section-label"><span>02 / PROJECTS</span><span>SELECTED WORK</span></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>DarkTrace-X</h2><span>THREAT INTELLIGENCE</span></div><p>Next.js / FastAPI security intelligence workspace for source discovery, collection quality and investigation workflows. Under active development.</p><a href="https://github.com/hexalpha/DarkTrace-X">VIEW SOURCE ↗</a></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>HEX ALERT</h2><span>DEFENSIVE AUTOMATION</span></div><p>Python, FastAPI and PostgreSQL services collecting categorized security intelligence and distributing alerts via Discord.</p><a href="https://github.com/hexalpha/HEX-ALERT">VIEW SOURCE ↗</a></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>HexBounty</h2><span>LOCAL DEVELOPMENT</span></div><p>Scope-aware, approval-gated assessment workspace with evidence logging, operator controls and local AI research.</p></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>HEX-ALPHA LLM</h2><span>PERSONAL RESEARCH</span></div><p>Ollama / llama.cpp and GGUF experiments for private inference, multilingual assistance and controlled tools.</p></div>
+        </section>
+        <section class="resume-card"><div class="resume-section-label"><span>03 / EXPERIENCE</span><span>SELECTED ROLES</span></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>Cybersecurity Internship — CyArt</h2><span>RECENT</span></div><p>Contributions and learning in security platform workflows, threat intelligence and engineering coordination.</p></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>Supervisor — Money Construction</h2><span>JAN 2025 – PRESENT</span></div><p>Labour records, daily site expenses, fuel records and operational coordination.</p></div>
+          <div class="resume-item"><div class="resume-item__heading"><h2>Billing Operator — JDVVNL</h2><span>OCT 2013 – DEC 2024</span></div><p>Billing and administrative support operations.</p></div>
+        </section>
       </div>
-    </section>
-
-
-    <section class="resume-section section-anchor" id="projects">
-      <div class="section__top"><span class="section__index">02 / SELECTED PROJECTS</span><span class="section__marker">ENGINEERING WORK</span><span class="section__plus">+</span></div>
-      <div class="resume-grid">
-        <article class="resume-card reveal"><h2>DarkTrace-X</h2><p>Next.js, FastAPI, PostgreSQL and threat intelligence workflows: source discovery, security-data ingestion, investigation and AI-assisted analysis.</p><a class="inline-link" href="https://github.com/hexalpha/DarkTrace-X" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></article>
-        <article class="resume-card reveal"><h2>HEX ALERT</h2><p>Python/FastAPI and PostgreSQL-based security intelligence collection, alerts, cyber job discovery, Discord routing and dashboard.</p><a class="inline-link" href="https://github.com/hexalpha/HEX-ALERT" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></article>
-        <article class="resume-card reveal"><h2>HexBounty</h2><p>Go, React, Docker and local AI security workspace with authorization-scoped assessment proposals, operator approval and auditability.</p></article>
-        <article class="resume-card reveal"><h2>Hex-Alpha Local LLM Research</h2><p>Ollama, llama.cpp, quantized GGUF models and experiments with private inference and controlled security-tool orchestration.</p></article>
+      <div class="resume-column">
+        <section class="resume-card"><div class="resume-section-label"><span>04 / TOOLBOX</span><span>TECHNOLOGIES</span></div><div class="resume-skills"><span>LINUX / KALI</span><span>PYTHON</span><span>NETWORKING</span><span>WEB SECURITY</span><span>FASTAPI</span><span>NEXT.JS</span><span>DOCKER</span><span>POSTGRESQL</span><span>GIT</span><span>OLLAMA</span><span>LLAMA.CPP</span><span>GGUF</span></div></section>
+        <section class="resume-card"><div class="resume-section-label"><span>05 / EDUCATION</span><span>BACKGROUND</span></div><div class="resume-item"><div class="resume-item__heading"><h2>M.Sc. Computer Science</h2><span>MGSU, BIKANER</span></div><p>Academic computer science background.</p></div><div class="resume-item"><div class="resume-item__heading"><h2>Certificate in Ethical Hacking</h2><span>CRAW SECURITY</span></div><p>Ethical hacking and security-focused training.</p></div><div class="resume-item"><div class="resume-item__heading"><h2>ITI — COPA</h2><span>TECHNICAL EDUCATION</span></div><p>Computer Operator and Programming Assistant.</p></div></section>
+        <section class="resume-card"><div class="resume-section-label"><span>06 / FOCUS</span><span>WORKING PRINCIPLES</span></div><ul class="resume-focus"><li>Evidence-driven security assessment</li><li>Defensive threat intelligence workflows</li><li>Automating repeatable engineering tasks</li><li>Local AI with human approval gates</li><li>Clear technical reporting</li></ul></section>
       </div>
-    </section>
-
-    <section class="resume-section section-anchor" id="skills">
-      <div class="section__top"><span class="section__index">03 / SKILLS</span><span class="section__marker">TOOLS & DOMAIN AREAS</span><span class="section__plus">+</span></div>
-      <div class="resume-grid">
-        <article class="resume-card reveal"><h2>Cybersecurity</h2><p>SOC basics, VAPT orientation, web pentesting exposure, security reporting, GRC awareness, threat intelligence interest.</p></article>
-        <article class="resume-card reveal"><h2>Technical Stack</h2><p>Python, FastAPI, Next.js, Docker, Git, PostgreSQL, Linux, Kali Linux, networking basics.</p></article>
-        <article class="resume-card reveal"><h2>AI / Automation</h2><p>Local LLM experiments, Ollama, llama.cpp, automation workflows, private AI assistance and tooling ideas.</p></article>
-        <article class="resume-card reveal"><h2>Soft Skills</h2><p>Problem solving, practical thinking, continuous learning, system understanding and hands-on experimentation.</p></article>
-      </div>
-    </section>
-
-    <section class="resume-section section-anchor" id="education">
-      <div class="section__top"><span class="section__index">04 / EDUCATION</span><span class="section__marker">ACADEMIC & TRAINING</span><span class="section__plus">+</span></div>
-      <div class="resume-list">
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>M.Sc. Computer Science</h2><span>MGSU, Bikaner</span></div></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Certificate in Ethical Hacking</h2><span>Craw Security</span></div></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>ITI COPA / ITI Electrician</h2><span>Completed</span></div></article>
-        <article class="resume-card reveal"><div class="resume-card__head"><h2>Additional Learning</h2><span>Ongoing</span></div><p>Linux, networking, web pentesting, local AI models and security-focused engineering projects.</p></article>
-      </div>
-    </section>
-
-    <section class="resume-section section-anchor" id="contact">
-      <div class="section__top"><span class="section__index">05 / CONTACT</span><span class="section__marker">LET’S CONNECT</span><span class="section__plus">+</span></div>
-      <div class="resume-card reveal">
-        <p>Available for cybersecurity, SOC, VAPT, security engineering and local-AI related discussions.</p>
-        <div class="contact__meta">
-          <div><span>EMAIL</span><strong><a href="mailto:junelmohmmad1234@gmail.com">junelmohmmad1234@gmail.com</a></strong></div>
-          <div><span>GITHUB</span><strong><a href="https://github.com/hexalpha" target="_blank" rel="noopener noreferrer">github.com/hexalpha</a></strong></div>
-          <div><span>LINKEDIN</span><strong><a href="https://www.linkedin.com/in/junel123" target="_blank" rel="noopener noreferrer">linkedin.com/in/junel123</a></strong></div>
-        </div>
-      </div>
-    </section>
+    </div>
+    <footer class="resume-footer"><span>Hα / HEXALPHA © <span id="resumeYear">2026</span></span><span>PUBLIC-SAFE RESUME — EMAIL FOR COMPLETE CV</span><a href="./index.html">BACK TO THE COMMAND SPACE ↑</a></footer>
   </main>
+  <script>
+    document.getElementById('printResume').addEventListener('click',()=>window.print());
+    document.getElementById('resumeYear').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>

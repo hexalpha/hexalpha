@@ -1,0 +1,55 @@
+/* HEXALPHA — compact desktop layout (mobile browser's "Desktop site" viewport).
+   This must remain after the main responsive rules. Real narrow mobile view unchanged. */
+@media (min-width: 860px) and (max-width: 1020px) {
+  .site-shell { width: min(1100px, calc(100% - 64px)); }
+  .site-header { height: 76px; padding: 0 20px; gap: 13px; }
+  .site-nav { position: static; inset: auto; display: flex; flex-direction: row;
+    align-items: center; gap: 12px; padding: 0; border: 0; background: transparent; }
+  .site-nav a { font-size: 9px; padding: 10px 0; border: 0; letter-spacing: .035em; }
+  .nav-toggle { display: none; }
+  .site-header__tools { margin-left: 0; }
+  .hero { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.9fr);
+    align-items: center; gap: clamp(20px,3vw,35px); padding-top: 158px;
+    padding-bottom: 115px; min-height: 770px; }
+  .hero__copy { max-width: none; min-width: 0; }
+  .hero__portrait-area { width: 100%; max-width: 100%; min-width: 0;
+    margin: 0; justify-self: end; padding-right: 9px; }
+  .hero__name > span { font-size: clamp(67px,7.7vw,83px); line-height: .89; }
+  .hero__name > span.hero__surname { font-size: clamp(47px,5.55vw,61px);
+    letter-spacing: -.063em; }
+  .hero__hello { margin-top: 28px; }
+  .hero__giant { top: 101px; font-size: clamp(112px,15vw,155px); }
+  .hero__data { display: none; }
+  .hero__title { margin-top: 23px; font-size: 9px; letter-spacing: .07em; }
+  .hero__description { font-size: 15px; line-height: 1.66; }
+  .hero__actions { gap: 10px; margin-top: 23px; }
+  .hero__credentials { margin-top: 25px; gap: 9px 16px; }
+  .portrait-satellite--one { left: -18px; }
+  .portrait-satellite--two { right: -4px; }
+  .hero__scroll { bottom: 23px; }
+  .story-grid { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 30px; }
+  .story-grid__stage { position: sticky; top: 110px; max-width: none; margin: 0; }
+  .core-stage { min-height: 0; width: 100%; aspect-ratio: 1/1; }
+  .missions__intro,.systems__intro,.arsenal__intro {
+    grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap: 24px; }
+  .missions__intro > p,.systems__intro > p { max-width: 100%; }
+  .systems-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .systems-visual { min-height: 420px; }
+  .system-dossier { min-height: 360px; }
+  .arsenal__grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .arsenal__description { grid-template-columns: 110px minmax(0,1fr); }
+  .lab__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px; }
+  .contact__links { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .contact__links a { border-right: 1px solid var(--line); border-bottom: 0; min-height: 90px; }
+  .contact__links a:last-child { border-right: 0; }
+}
+@media (min-width: 860px) and (max-width: 930px) {
+  .site-nav { gap: 8px; }
+  .site-nav a { font-size: 8px; }
+  .site-brand { gap: 7px; }
+  .site-brand__symbol { width: 40px; height: 40px; }
+  .site-brand__name strong { font-size: 13px; }
+  .site-header__tools .motion-toggle { padding: 0 7px; }
+  .hero__name > span { font-size: clamp(61px,7.3vw,72px); }
+  .hero__name > span.hero__surname { font-size: clamp(42px,5.15vw,51px); }
+}
